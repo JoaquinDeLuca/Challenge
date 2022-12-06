@@ -1,17 +1,21 @@
 import './App.css'
 import Login from './Components/Login';
 import List from './Components/list';
+import Header from './Components/Header';
+import Footer from './Components/Footer';
 import { Route, Routes } from 'react-router-dom';
 
 function App() {
 
   return (
-    <div className='flex justify-center m-10'>
+    <>
+      <Header />
       <Routes>
         <Route path='/' element={<Login/>} />
-        <Route path='/list' element={<List />} />
+        <Route path='/listado' element={<List />} />
       </Routes>
-    </div>
+      <Footer/>
+    </>
   )
 }
 
