@@ -56,7 +56,7 @@ export default function Login() {
 
   return (
     <>
-        <form onSubmit={submitHandler} className="flex flex-col gap-5">
+        <form onSubmit={submitHandler} className="flex flex-col gap-5 items-center m-10">
             <h2 className="text-2xl">Iniciar Sesión</h2>
 
             <input type='text' name="email" placeholder="Email" />
