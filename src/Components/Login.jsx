@@ -1,6 +1,7 @@
 import axios from "axios";
 import swAlert from '@sweetalert/with-react'
 import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 export default function Login() {
 
@@ -53,6 +54,14 @@ export default function Login() {
         navigate('/listado')
       })
   }
+    
+    
+  useEffect(() => {
+      let token = localStorage.getItem('token')
+      if(token !== null)  {
+        navigate('/listado')
+      }
+  },[])
 
   return (
     <>
