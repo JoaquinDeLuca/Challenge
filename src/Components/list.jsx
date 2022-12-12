@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate, Link } from "react-router-dom"
+import swAlert from '@sweetalert/with-react'
 
 export default function list() {
 
@@ -22,7 +23,12 @@ export default function list() {
             .then( response => {
                 setMoviesList(response.data.results)
             })
-    },[])
+            .catch(error => {
+              swAlert({
+                title:'Hubo un error inesperado, intenta nuevamente o prueba más tarde'
+              })
+            })
+    },[setMoviesList])
 
     console.log(moviesList);
 
@@ -37,7 +43,7 @@ export default function list() {
                                 <div>
                                     <h5>{movie.name}</h5>
                                     <p>{movie.overview.substring(0,110)}...</p>
-                                    <Link className="bg-slate-900 " to="/">Ver más</Link>
+                                    <Link className="bg-slate-900 " to={`/detalle/${movie.id}`} >Ver más</Link>
                                 </div>
                             </div>
                         </div>
