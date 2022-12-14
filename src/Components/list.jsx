@@ -9,7 +9,7 @@ export default function list() {
     const [moviesList, setMoviesList] = useState([])
     
     useEffect(() => {
-        let token = localStorage.getItem('token')
+        let token = sessionStorage.getItem('token')
         if(token === null)  {
             navigate('/')
         }
@@ -30,20 +30,20 @@ export default function list() {
             })
     },[setMoviesList])
 
-    console.log(moviesList);
+    // console.log(moviesList);
 
     return (
         <>
-            <div className="px-4 container grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 m-auto">
+            <div className="px-4 my-6 container grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2  lg:grid-cols-4 gap-4 m-auto">
                 {moviesList.map( movie => {
                     return(
-                        <div key={movie.id} className="flex flex-col" style={{border: '1px solid red'}}>
-                            <div className="card">
-                                <img className="" src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.name}/>
-                                <div>
-                                    <h5>{movie.name}</h5>
-                                    <p>{movie.overview.substring(0,110)}...</p>
-                                    <Link className="bg-slate-900 " to={`/detalle/${movie.id}`} >Ver más</Link>
+                        <div key={movie.id} className="flex flex-col bg-slate-800 rounded-lg shadow-xl">
+                            <div>
+                                <img className="rounded-t-lg" src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title}/>
+                                <div className="min-h-48 flex flex-col items-start p-3 gap-2 ">
+                                    <h5 className="text-white text-lg font-black">{movie.title}</h5>
+                                    <p className="text-white">{movie.overview.substring(0,110)}...</p>
+                                    <Link className="bg-black text-white p-1 rounded " to={`/detalle/${movie.id}`} >Ver más</Link>
                                 </div>
                             </div>
                         </div>
