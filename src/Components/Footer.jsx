@@ -2,7 +2,7 @@
 export default function Footer() {
   return (
 
-    <footer className="bg-cyan-900 flex flex-col items-center gap-4 p-3 text-white">
+    <footer className="bg-neutral-900 flex flex-col items-center gap-4 p-3 text-white h-[10vh]">
         <nav>
             <ul className="flex gap-4 justify-center">
                 <li>

@@ -31,10 +31,10 @@ export default function Details() {
                 })
             })
     },[movieId])
-    console.log(movie)
+    // console.log(movie)
 
   return (
-    <>
+    <div className="h-[82vh] md:h-min-[82vh]">
         { !movie && <p>cargando...</p>}
         { movie && (
             <>
@@ -56,6 +56,6 @@ export default function Details() {
             </div>
             </>
         )}
-    </>
+    </div>
   )
 }
