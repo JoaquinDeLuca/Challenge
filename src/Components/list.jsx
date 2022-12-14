@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate, Link } from "react-router-dom"
 import swAlert from '@sweetalert/with-react'
+import Search from "./Search";
 
 export default function list() {
 
@@ -34,13 +35,14 @@ export default function list() {
 
     return (
         <>
-            <div className="px-4 my-6 container grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2  lg:grid-cols-4 gap-4 m-auto">
+            <Search />
+            <div className="px-4 my-6 container grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2  lg:grid-cols-4 gap-4 m-auto bg-neutral-200 p-4 rounded-lg">
                 {moviesList.map( movie => {
                     return(
-                        <div key={movie.id} className="flex flex-col bg-slate-800 rounded-lg shadow-xl">
+                        <div key={movie.id} className="flex flex-col bg-neutral-700 rounded-lg shadow-xl">
                             <div>
                                 <img className="rounded-t-lg" src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title}/>
-                                <div className="min-h-48 flex flex-col items-start p-3 gap-2 ">
+                                <div className="h-min-[220px] flex flex-col items-center p-3 gap-2 ">
                                     <h5 className="text-white text-lg font-black">{movie.title}</h5>
                                     <p className="text-white">{movie.overview.substring(0,110)}...</p>
                                     <Link className="bg-black text-white p-1 rounded " to={`/detalle/${movie.id}`} >Ver más</Link>
