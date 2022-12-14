@@ -50,14 +50,14 @@ export default function Login() {
         }),
         console.log(res.data)
         const tokenRecibido = res.data.token
-        localStorage.setItem('token', tokenRecibido)
+        sessionStorage.setItem('token', tokenRecibido)
         navigate('/listado')
       })
   }
     
     
   useEffect(() => {
-      let token = localStorage.getItem('token')
+      let token = sessionStorage.getItem('token')
       if(token !== null)  {
         navigate('/listado')
       }
