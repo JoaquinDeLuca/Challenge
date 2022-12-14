@@ -4,7 +4,7 @@ export default function Header() {
 
   return (
     <>
-        <header className="bg-cyan-900 flex justify-center text-white">
+        <header className="bg-neutral-900 flex justify-center text-white h-[6vh]">
             <nav className="flex m-4 ">
                 <ul className="flex gap-4">
                     <li>
