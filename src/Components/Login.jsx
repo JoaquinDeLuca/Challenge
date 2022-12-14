@@ -64,15 +64,15 @@ export default function Login() {
   },[])
 
   return (
-    <>
-        <form onSubmit={submitHandler} className="flex flex-col gap-5 items-center m-10">
-            <h2 className="text-2xl">Iniciar Sesión</h2>
+    <div className="flex justify-center items-center h-[84vh]">
+        <form onSubmit={submitHandler} className="flex flex-col gap-5 items-center m-10 border-2 border-slate-900 p-20 rounded-md">
+            <h2 className="text-2xl mb-10">Iniciar Sesión</h2>
 
             <input type='text' name="email" placeholder="Email" />
             <input type='Password' name="password" placeholder="Password" />
 
-            <button type="submit">Ingresar</button>
+            <button className="m-4 border-2 border-slate-900 hover:bg-slate-900 hover:text-white rounded-md px-2 py-1" type="submit">Ingresar</button>
         </form>  
-    </>
+    </div>
   )
 }
