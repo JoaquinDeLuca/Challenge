@@ -2,7 +2,6 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate, Link } from "react-router-dom"
 import swAlert from '@sweetalert/with-react'
-import Search from "./Search";
 
 export default function list() {
 
@@ -18,8 +17,7 @@ export default function list() {
 
 
     useEffect(()=> {
-        const URL = 'https://api.themoviedb.org/3/trending/all/day?api_key=18d9de0579facb89186199f3d4efd1fb&language=es-ES'
-        // const ourl ='https://api.themoviedb.org/3/discover/movie?api_key=18d9de0579facb89186199f3d4efd1fb&1anguage=es-ES&page=1' 
+        const URL ='https://api.themoviedb.org/3/discover/movie?api_key=18d9de0579facb89186199f3d4efd1fb&1anguage=es-ES' 
         axios.get(URL)
             .then( response => {
                 setMoviesList(response.data.results)
@@ -31,11 +29,9 @@ export default function list() {
             })
     },[setMoviesList])
 
-    // console.log(moviesList);
 
     return (
         <>
-            <Search />
             <div className="px-4 my-6 container grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2  lg:grid-cols-4 gap-4 m-auto bg-neutral-200 p-4 rounded-lg">
                 {moviesList.map( movie => {
                     return(
