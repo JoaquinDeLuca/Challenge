@@ -9,12 +9,30 @@ import { Route, Routes } from 'react-router-dom';
 
 function App() {
 
+
+  const addOrRemoveFavorites = e => {
+    const btn = e.currentTarget
+    const parent = btn.parentElement
+    const imgURl = parent.querySelector('img').getAttribute('src')
+    const title = parent.querySelector('h5').innerText
+    const overview = parent.querySelector('p').innerText
+    const movieId = btn.dataset.movieid
+
+    const movieData = {
+      imgURl,
+      title,
+      overview,
+      movieId
+    }
+    console.log(movieData)
+  }
+
   return (
     <>
       <Header />
       <Routes>
         <Route path='/' element={<Login/>} />
-        <Route path='/listado' element={<List />} />
+        <Route path='/listado' element={<List addOrRemoveFavorites={addOrRemoveFavorites} />} />
         <Route path='/detalle/:id' element={<Details />}/>
         <Route path='/resultados/:query' element={<Result/>} />
       </Routes>
