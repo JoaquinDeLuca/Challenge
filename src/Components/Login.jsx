@@ -47,8 +47,7 @@ export default function Login() {
         swAlert({
           title: 'Has ingresado correctamente',
           icon:'success'
-        }),
-        console.log(res.data)
+        })
         const tokenRecibido = res.data.token
         sessionStorage.setItem('token', tokenRecibido)
         navigate('/listado')
@@ -68,8 +67,8 @@ export default function Login() {
         <form onSubmit={submitHandler} className="flex flex-col gap-5 items-center m-10 border-2 border-slate-900 p-20 rounded-md">
             <h2 className="text-2xl mb-10 underline">Iniciar Sesión</h2>
 
-            <input className="border-2 rounded-md" type='text' name="email" placeholder="Email" />
-            <input className="border-2 rounded-md" type='Password' name="password" placeholder="Password" />
+            <input className="border-2 rounded-md p-1" type='text' name="email" placeholder="Email" />
+            <input className="border-2 rounded-md p-1" type='Password' name="password" placeholder="Password" />
 
             <button className="m-4 border-2 border-slate-900 hover:bg-slate-900 hover:text-white rounded-md px-2 py-1" type="submit">Ingresar</button>
         </form>  
