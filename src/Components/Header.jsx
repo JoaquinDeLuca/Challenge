@@ -2,7 +2,7 @@ import { Link } from "react-router-dom"
 import Search from "./Search";
 
 
-export default function Header() {
+export default function Header(props) {
 
   return (
     <>
@@ -17,6 +17,9 @@ export default function Header() {
                     </li>
                     <li>
                         <Link to='/contacto'>Contacto</Link>
+                    </li>
+                    <li>
+                        <Link className="flex items-center" to='/favoritos'>Favoritos {props.favorites.length > 0  && <p className="ml-2">{props.favorites.length}🖤</p>}</Link>
                     </li>
                 </ul>
                 <Search />
