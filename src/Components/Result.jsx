@@ -2,8 +2,9 @@ import { useEffect, useState  } from "react"
 import axios from "axios"
 import swAlert from '@sweetalert/with-react'
 import { Link, useParams } from "react-router-dom"
+import Card from './Card'
 
-export default function Result() {
+export default function Result(props) {
 
     const keyword = useParams();
     
@@ -21,8 +22,6 @@ export default function Result() {
         })
         .catch(error => console.log('error'))
     },[keyword.query])
-
-    console.log(moviesResult)
 
     return (
       <>
@@ -42,21 +41,7 @@ export default function Result() {
           <div className="h-min-[84vh] container flex flex-col items-start m-auto">
             <p className="text-2xl mt-6">Buscaste: <span className="font-semibold">{keyword.query}</span></p>
             {moviesResult.length === 0 && <p className="text-2xl">No se encontraron resultados</p>}
-            <div className="px-4 my-6 container grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2  lg:grid-cols-4 gap-4 m-auto bg-neutral-200 p-4 rounded-lg">
-                  {moviesResult.map( movie => {
-                      return(
-                        <div key={movie.id} className="flex flex-col bg-neutral-700 rounded-lg shadow-xl">
-                            <div>
-                              <img className="rounded-t-lg" src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title}/>
-                              <div className="flex flex-col items-center gap-3 p-3">
-                                <h5 className="text-white text-lg font-black">{movie.title}</h5>
-                                <Link className="bg-black text-white p-1 rounded " to={`/detalle/${movie.id}`} >Ver más</Link>
-                              </div>
-                            </div>
-                        </div>
-                      )
-                  })}
-              </div>
+            <Card moviesList={moviesResult}  addOrRemoveFavorites={props.addOrRemoveFavorites}/>
           </div>
         }
       </>

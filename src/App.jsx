@@ -1,4 +1,3 @@
-import './App.css'
 import Login from './Components/Login';
 import List from './Components/list';
 import Header from './Components/Header';
@@ -37,7 +36,7 @@ function App() {
 
     const btn = e.currentTarget
     const parent = btn.parentElement
-    const imgURl = parent.querySelector('img').getAttribute('src')
+    const imgURl = parent.querySelector('#imgMovie').getAttribute('src')
     const title = parent.querySelector('h5').innerText
     const overview = parent.querySelector('p').innerText
     const id = btn.dataset.movieid
@@ -70,8 +69,8 @@ function App() {
         <Route path='/' element={<Login/>}/>
         <Route path='/listado' element={<List addOrRemoveFavorites={addOrRemoveFavorites} />} />
         <Route path='/detalle/:id' element={<Details />}/>
-        <Route path='/resultados/:query' element={<Result/>}/>
-        <Route path='/favoritos' element={<Favorites favorites={favorites} />}/>
+        <Route path='/resultados/:query' element={<Result addOrRemoveFavorites={addOrRemoveFavorites} />}/>
+        <Route path='/favoritos' element={<Favorites favorites={favorites} addOrRemoveFavorites={addOrRemoveFavorites} />}/>
       </Routes>
       <Footer/>
     </>
