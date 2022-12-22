@@ -10,16 +10,16 @@ export default function Card(props) {
     const[removeFav, setRemoveFav] = useState(favNeg)
     const[addFav, setAddFav] = useState(favPng)
 
-    const a = () => {
-        const favMovie = localStorage.getItem('favs')
-        let favParse = JSON.parse(favMovie)
-        if(!props.moviesList.includes(favParse)){
-           return removeFav
-        }else{
-           return addFav
-        }
+    // const a = () => {
+    //     const favMovie = localStorage.getItem('favs')
+    //     let favParse = JSON.parse(favMovie)
+    //     if(!props.moviesList.includes(favParse)){
+    //        return removeFav
+    //     }else{
+    //        return addFav
+    //     }
 
-    }
+    // }
 
   return (
     <div className="px-4 my-6 container grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2  lg:grid-cols-4  gap-4 m-auto bg-neutral-200 p-4 rounded-lg">
@@ -30,7 +30,7 @@ export default function Card(props) {
                         onClick={props.addOrRemoveFavorites}
                         data-movieid = {movie.id}
                         className="w-[35px] h-[35px] absolute m-2">
-                        <img src={a()} alt="favorito" />
+                        <img src={favPng} alt="favorito" />
                     </button>
                 <div>
                     <img id='imgMovie' className="rounded-t-lg" src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title}/>
