@@ -18,7 +18,7 @@ export default function list(props) {
 
 
     useEffect(()=> {
-        const URL ='https://api.themoviedb.org/3/discover/movie?api_key=18d9de0579facb89186199f3d4efd1fb&1anguage=es-ES' 
+        const URL ='https://api.themoviedb.org/3/discover/movie?api_key=18d9de0579facb89186199f3d4efd1fb&language=es-ES' 
         axios.get(URL)
             .then( response => {
                 setMoviesList(response.data.results)

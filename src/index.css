@@ -11,6 +11,10 @@ html{
     min-height: 100%;
     position: relative;
 }
-body{
-    margin-bottom: 120px;
+body::-webkit-scrollbar{
+    width: 10px;
+    background-color: white;
+}
+body::-webkit-scrollbar-thumb{
+    background: #171717c5;
 }

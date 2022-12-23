@@ -4,7 +4,7 @@ import { Link } from "react-router-dom"
 export default function Card(props) {
 
   return (
-    <div className="px-4 my-6 container grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2  lg:grid-cols-4  gap-4 m-auto bg-neutral-200 p-4 rounded-lg">
+    <div className="px-4 mt-6 mb-32 container grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2  lg:grid-cols-4  gap-4 m-auto p-4 rounded-lg">
     {props.moviesList.map( movie => {
         return(
             <div key={movie.id} className="flex flex-col bg-neutral-700 rounded-lg shadow-xl"> 
@@ -14,7 +14,7 @@ export default function Card(props) {
                         className="w-[35px] h-[35px] absolute m-2">
                         <img src={favPng} alt="favorito" />
                     </button>
-                <div>
+                <div className='flex flex-col'>
                     <img id='imgMovie' className="rounded-t-lg" src={movie.imgURl || `https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title}/>
                     <div className="h-min-[220px] flex flex-col items-center p-3 gap-2 ">
                         <h5 className="text-white text-lg font-black">{movie.title}</h5>

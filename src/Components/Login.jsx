@@ -2,8 +2,9 @@ import axios from "axios";
 import swAlert from '@sweetalert/with-react'
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
+import icon from '../assets/pelicula.png'
 
-export default function Login() {
+export default function Login(props) {
 
   const navigate = useNavigate();
 
@@ -50,6 +51,7 @@ export default function Login() {
         })
         const tokenRecibido = res.data.token
         sessionStorage.setItem('token', tokenRecibido)
+        props.setlogged(true)
         navigate('/listado')
       })
   }
@@ -63,14 +65,15 @@ export default function Login() {
   },[])
 
   return (
-    <div className="flex justify-center items-center h-[80vh]">
-        <form onSubmit={submitHandler} className="flex flex-col gap-5 items-center m-10 border-2 border-slate-900 p-20 rounded-md">
-            <h2 className="text-2xl mb-10 underline">Iniciar Sesión</h2>
+    <div className="flex justify-center items-center h-[83vh]">
+        <form onSubmit={submitHandler} className="m-3 flex flex-col ">
+              <img className="w-1/5 m-auto" src={icon} alt='logo' />
+            <h2 className="text-2xl mb-10  text-center">Pelíflix</h2>
 
-            <input className="border-2 rounded-md p-1" type='text' name="email" placeholder="Email" />
+            <input className="border-2 rounded-md p-1 mb-2" type='text' name="email" placeholder="Email" />
             <input className="border-2 rounded-md p-1" type='Password' name="password" placeholder="Password" />
 
-            <button className="m-4 border-2 border-slate-900 hover:bg-slate-900 hover:text-white rounded-md px-2 py-1" type="submit">Ingresar</button>
+            <button className="mt-6 p-1 border-0 bg-black text-white rounded-md s" type="submit">Ingresar</button>
         </form>  
     </div>
   )
