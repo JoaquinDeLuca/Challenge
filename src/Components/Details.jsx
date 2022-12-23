@@ -32,7 +32,7 @@ export default function Details() {
     },[movieId])
 
   return (
-    <div className="h-[82vh] md:h-min-[82vh]">
+    <div className="h-[83vh] flex items-center">
         { !movie && 
             <div className="flex h-screen w-screen items-center justify-center">
                 <button type="button" className="flex items-center rounded-lg bg-black px-4 py-2 text-white" disabled>
@@ -47,8 +47,8 @@ export default function Details() {
         { movie && (
             <>
             <div className="my-6 flex flex-col md:flex-row justify-center items-start">
-                <div className="flex flex-col items-center">
-                    <img className="w-2/5 md:w-full" src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.original_title} />
+                <div className="flex flex-col items-center m-auto md:m-0 ">
+                    <img className="w-3/6 md:w-10/12 rounded-lg" src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.original_title} />
                 </div>
                 <div className="md:flex flex-col md:w-3/12 mx-6">
                     <h1 className="text-3xl my-4 font-black">{movie.title}</h1>
