@@ -12,8 +12,14 @@ function App() {
 
   
   const [favorites, setFavorites] = useState([])
-
+  const [logged, setlogged] = useState(null)
+  
   useEffect(()=>{
+      let token = sessionStorage.getItem('token')
+      if(token !== null){
+        setlogged(true)
+      }
+
       const favMovie = localStorage.getItem('favs')
 
       if(favMovie !== null){
@@ -64,9 +70,9 @@ function App() {
 
   return (
     <>
-      <Header favorites={favorites} />
+      <Header favorites={favorites} logged={logged} />
       <Routes>
-        <Route path='/' element={<Login/>}/>
+        <Route path='/' element={<Login setlogged={setlogged}/>}/>
         <Route path='/listado' element={<List addOrRemoveFavorites={addOrRemoveFavorites} />} />
         <Route path='/detalle/:id' element={<Details />}/>
         <Route path='/resultados/:query' element={<Result addOrRemoveFavorites={addOrRemoveFavorites} />}/>
