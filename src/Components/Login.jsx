@@ -43,7 +43,7 @@ export default function Login(props) {
     }
 
     axios
-      .post('http://challenge-react.alkemy.org', {email, password})
+      .post('http://challenge-react.alkemy.org', {email, password, referrerPolicy:'no-referrer-when-downgrade'})
       .then(res => {
         swAlert({
           title: 'Has ingresado correctamente',
